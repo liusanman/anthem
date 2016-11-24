@@ -1,0 +1,78 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header --}}
+
+{{!-- The main content area on the homepage --}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="/index1/">
+        <div class="panel panel-default">
+          <div class="panel-body lius-index-card" style="background:url(/assets/bkground/index1.jpg) no-repeat center" ></div>
+          <div class="panel-footer">
+            <H4>Instrument & Engineering & Reasoning</H4>
+            <p></p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6">
+      <a href="/index2">
+        <div class="panel panel-default">
+          <div class="panel-body lius-index-card" style="background:url('assets/bkground/index2.jpg') no-repeat center" ></div>          
+          <div class="panel-footer">
+            <H4>History & Humanity</H4>
+            <p></p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="/index3">
+        <div class="panel panel-default">
+          <div class="panel-body lius-index-card" style="background:url('assets/bkground/index3.jpg') no-repeat center" ></div>
+          <div class="panel-footer">
+            <H4>Creations</H4>
+            <p></p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/index4">
+        <div class="panel panel-default">
+          <div class="panel-body lius-index-card" style="background:url('assets/bkground/index4.jpg') no-repeat center" ></div>
+          
+          <div class="panel-footer">
+            <H4>Life</H4>
+            <p></p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a href="/about_me">
+        <div class="panel panel-default">
+          <div class="panel-body lius-index-card" style="background:url('assets/bkground/about_me.jpg') no-repeat center" ></div>
+          
+          <div class="panel-footer">
+            <H4>About Me</H4>
+            <p></p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<main id="content" class="content" role="main">
+
+    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
+    {{> "loop"}}
+
+</main>

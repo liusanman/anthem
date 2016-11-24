@@ -1,0 +1,29 @@
+{
+    "name": "anthem",
+    "description": "an simple theme",
+    "version": "0.0.4",
+    "engines": {
+        "ghost": ">=0.9.0 <1.0.0"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Anman",
+        "email": "liusanman@yahoo.com",
+        "url": "https://www.anmane.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liusanman/antheme.git"
+    }
+}

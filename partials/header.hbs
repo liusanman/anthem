@@ -1,0 +1,21 @@
+<header class="main-header no-cover">
+    <div class="container ">
+      <div class="lius-site-head {{#if tag.image}}" style="background-image: url({{tag.image}}){{else}}{{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}{{/if}}">
+
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{#if tag.name}}{{tag.name}}{{else}}{{@blog.title}}{{/if}}</h1>
+            <h2 class="page-description">
+                {{#if tag.description}}
+                    {{tag.description}}
+                {{else}}
+                    {{@blog.description}}
+                {{/if}}
+            </h2>
+        </div>
+        </div>
+      <div id="lius-nav">
+      {{navigation}} 
+      </div>
+    </div>
+</header>
+

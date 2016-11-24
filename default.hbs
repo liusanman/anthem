@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Brand icon --}}
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/googlefont.css"}}" />
+    
+    {{!-- Add by lius --}}
+    <link href="{{asset "css/bootstrap.min.css"}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?3afb614ae8d214f9f07b479114042c8a";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+</head>
+<body class="{{body_class}} nav-closed">
+
+    {{> header }}
+
+    <div class="site-wrapper">
+        {{{body}}}
+    </div>
+
+    {{> footer }}
+
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
+</body>
+</html>

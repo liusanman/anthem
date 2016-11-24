@@ -1,0 +1,9 @@
+    
+    <ul class="nav nav-tabs">
+        {{#foreach navigation}}
+            <li role="presentation" class="{{slug}}{{#if current}} active{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+        <li  class="pull-right"><a href="/ghost">Login</a></li>
+    </ul>
+    
+<span class="nav-cover"></span>
