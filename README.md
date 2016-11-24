@@ -6,7 +6,7 @@ Ghost - Just a blogging platform [Ghost](https://ghost.org/).
 
 ##2. Demo
 
-[anblog](https://www.anmane.com)
+[anblog](http://www.anmane.com)
 
 ##3. Based
 
