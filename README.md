@@ -25,9 +25,9 @@ Anthem is based on the default theme of Ghost - casper. So it's easy for beginne
 
 1. The architecture of website.
 
-* **Homepage: ** On the hompage, it gives five collection cards. Each of the cards links to the collection page. 
+ * **Homepage:** On the hompage, it gives five collection cards. Each of the cards links to the collection page. 
 
-* **Collection page: ** collection page is a static page created by user. Its title is showed on the hompage. Collection means the collection of tags. For example, if I want "Film" and "Music" as a Collection "Entertainment", I should create a static page with title "Entertainment" and url "index1" and tags "Film"and "Music". So Collection "Entertainment" will be showed on the homepage. Clicking into the "Entertainment", a tag list will be show.
+ * **Collection page:** collection page is a static page created by user. Its title is showed on the hompage. Collection means the collection of tags. For example, if I want "Film" and "Music" as a Collection "Entertainment", I should create a static page with title "Entertainment" and url "index1" and tags "Film"and "Music". So Collection "Entertainment" will be showed on the homepage. Clicking into the "Entertainment", a tag list will be show.
 
 2. Table of Contents.
 
