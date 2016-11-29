@@ -1,16 +1,37 @@
-# Casper
+#Anthem
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/).
+##1. Description
+Anthem is a simple theme of **Ghost**.
 
-To download, visit the [releases](https://github.com/TryGhost/Casper/releases) page.
+**Ghost** - Just a blogging platform [Ghost](https://ghost.org/). 
 
-## Copyright & License
+##2. Demo
 
-Copyright (c) 2013-2016 Ghost Foundation - Released under the MIT License.
+[anblog](http://www.anmane.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+##3. Based
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Anthem is based on the default theme of Ghost - casper. So it's easy for beginner of Ghost to read and modify.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+##4. Why I choose Ghost and this theme?
+
+1. **I just want to has an personal website to blogging and sharing.** Ghost gives a concise solution of Blogging. As it is said, Ghost is just a blogging platform. You can focus on blogging.
+ 
+2. **I want to do all my jobs such as writing and managment on the web.** Ghost has an onlining editing interface. in the other words, it has a background management system. With this, we can do everything on the web.
+
+3. **I want to design my websit on the appearance and architecture.** Theme of ghost give the way to have your special exterior.
+
+##5. Features
+
+1. The architecture of website.
+
+ * **Homepage:** On the hompage, it gives five collection cards. Each of the cards links to the collection page. 
+
+ * **Collection page:** collection page is a static page created by user. Its title is showed on the hompage. Collection means the collection of tags. For example, if I want "Film" and "Music" as a Collection "Entertainment", I should create a static page with title "Entertainment" and url "index1" and tags "Film"and "Music". So Collection "Entertainment" will be showed on the homepage. Clicking into the "Entertainment", a tag list will be show.
+
+2. Table of Contents.
+
+On the post reading page, table of contents is used. Out of the theme files, ghost should have just one line modify. Please refer to [this](https://github.com/netzzwerg/ghost-helper-toc)
+
+
+
