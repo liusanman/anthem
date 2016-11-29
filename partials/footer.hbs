@@ -4,7 +4,7 @@
 </footer>
 
 {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
-<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="{{asset "js/jquery-1.12.0.min.js"}}"></script>
 
 {{!-- Fitvids makes video embeds responsive and awesome --}}
 <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
@@ -15,37 +15,42 @@
 
 <script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
 
-<script>
-  $(document).ready(function($){
-    $.fn.smartFloat = function(poi) {
-      var position = function(element) {
-        var top = element.position().top, pos = element.css("position");
-        $(window).scroll(function() {
-          var scrolls = $(this).scrollTop();
-          if (scrolls > top) {
-            if (window.XMLHttpRequest) {
-              element.css({
-                position: "fixed",
-                top: poi
-              });
-            } else {
-              element.css({top: scrolls});
+
+<script type="text/javascript">
+$(function() {
+    var fix = $('#lius-toc');                      //滚动悬浮块
+    var end = $('#bottom');                     //滚动到这个元素后结束固定
+    var fixTop = fix.offset().top,              //滚动悬浮块与顶部的距离
+        fixHeight = fix.height();               //滚动悬浮块高度
+    var endTop, miss;                           //结束元素与顶部的距离
+
+    $(window).scroll(function() {
+        //页面与顶部高度
+        var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+        docTop = Math.max($(this).scrollTop(),docTop);
+        //如果有结束块
+        if (end.length > 0) {
+            endTop = end.offset().top;
+            miss = endTop - docTop - fixHeight;
+        }
+
+        if (fixTop < docTop) {
+            fix.css({'position': 'fixed'});
+            
+            if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+                fix.css({top: miss});           //滚动悬浮块滑到结束块上时，top值为负，即慢慢隐藏出浏览器
+            } else{
+                fix.css({top: 0});              //滚动悬浮块未到结束块上时，top为0
             }
-          } else {
-            element.css({
-              position: "absolute",
-              top: top
-            });
-          }
-        });
-      };
-      return $(this).each(function() {
-        position($(this)); 
-      });
-    };
-    $("#lius-toc").smartFloat(20);
-  });
+        } else {
+            fix.css({'position': 'absolute'});
+            
+        }
+    })
+});
 </script>
+
+
 
 
 
