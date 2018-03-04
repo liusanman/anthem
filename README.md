@@ -6,17 +6,17 @@
 Cause of the theme adding a helper to show Post's TOC. You need to 
  1. Add a line in the *Ghost_Path*/index.js
  
-···
+```js
       // Add this into Ghost_Path/index.js
       require('./content/themes/anthem/helpers/anthem_toc')():
- ··· 
+```
  
  2. Add the new helper name into checklist. (Ghost will check whether there is any unknown helper.)
  
- ···
+```js
       // Add the helper name in Ghost_Path/node_module/gscan/lib/spec.js which is looked like:
       knowHelpers=['foreach',.......,'anthem_toc'];
- ···
+```
  
  3. restart the server.
  
