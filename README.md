@@ -8,7 +8,7 @@ Cause of the theme adding a helper to show Post's TOC. You need to
  
 ```js
       // Add this into Ghost_Path/index.js
-      require('./content/themes/anthem/helpers/anthem_toc')():
+      require('./content/themes/anthem/helpers/anthem_toc')();
 ```
  
  2. Add the new helper name into checklist. (Ghost will check whether there is any unknown helper.)
@@ -18,7 +18,7 @@ Cause of the theme adding a helper to show Post's TOC. You need to
       knowHelpers=['foreach',.......,'anthem_toc'];
 ```
  
- 3. restart the server.
+ 3. Restart the server.
  
  
 **Tips:** By the same method, you can add your own helper to themes.(I think it's stupid to prevent users to add their own helpers.)
