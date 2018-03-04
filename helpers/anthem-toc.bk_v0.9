@@ -5,9 +5,11 @@ var hbs     = require('express-hbs'),
     registerHelper,
     cheerio = require('cheerio');
 
+//var tmp = require('register');
+
 
 var registerHelper = function () {
-
+//Handlebars.registerHelper('toc',function() {
   //
   // ### Table of Contents helper
   //
@@ -24,8 +26,8 @@ var registerHelper = function () {
   //
   // **returns** SafeString content html.
   //
-  hbs.registerHelper('toc', function(options) {
-
+  //hbs.registerHelper('toc', function(options) {
+  this.ghost.helpers.register('toc', function(options) {
     var options = options || {};
         options.hash = options.hash || {};
 
@@ -70,3 +72,4 @@ var registerHelper = function () {
 };
 
 module.exports = registerHelper;
+

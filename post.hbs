@@ -6,8 +6,8 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<header class="lius-site-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
+<header class="lius-site-header post-head {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}">
+    <nav class="main-nav {{#if feature_image}}overlay{{/if}} clearfix">
         {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
         {{#if @blog.navigation}}
             {{!--navigation--}}
@@ -22,7 +22,7 @@
                     <H2>Table</H2>
               
                 <div class="pre-scrollable" style="float:top;  max-height:60vh; overflow:scroll">
-                    {{toc start="1" end="3"}}
+                    {{anthem_toc start="1" end="3"}}
                 </div>
             </div>
             <div class="col-md-9 col-xs-12" id="lius-article">
@@ -47,9 +47,9 @@
                     {{!-- Everything inside the #author tags pulls data from the author --}}
                     {{#author}}
 
-                        {{#if image}}
+                        {{#if feature_image}}
                         <figure class="author-image">
-                            <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                            <a class="img" href="{{url}}" style="background-image: url({{img_url feature_image}})"><span class="hidden">{{name}}'s Picture</span></a>
                         </figure>
                         {{/if}}
 
@@ -110,7 +110,7 @@
 {{!-- Links to Previous/Next posts --}}
 <aside class="read-next">
     {{#next_post}}
-    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+    <a class="read-next-story {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
         <section class="post">
             <h2>{{title}}</h2>
             <p>{{excerpt words="19"}}&hellip;</p>
@@ -118,7 +118,7 @@
     </a>
     {{/next_post}}
     {{#prev_post}}
-    <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+    <a class="read-next-story prev {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
         <section class="post">
             <h2>{{title}}</h2>
             <p>{{excerpt words="19"}}&hellip;</p>
