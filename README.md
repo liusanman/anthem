@@ -1,16 +1,27 @@
-# Casper
+# Anthem ( A simple theme of Ghost)
+**adapt to Ghost 1.0
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/).
+[Demo](http://www.anmane.com/).
 
-To download, visit the [releases](https://github.com/TryGhost/Casper/releases) page.
+Cause of the theme adding a helper to show Post's TOC. You need to 
+ 1. Add a line in the *Ghost_Path*/index.js
 
-## Copyright & License
+    // Add this into Ghost_Path/index.js
+    require('./content/themes/anthem/helpers/anthem_toc')():
+    
+ 2. Add the new helper name into checklist. (Ghost will check whether there is any unknown helper.)
+ 
+    // Add the helper name in Ghost_Path/node_module/gscan/lib/spec.js which is looked like:
+    knowHelpers=['foreach',.......,'anthem_toc'];
 
-Copyright (c) 2013-2016 Ghost Foundation - Released under the MIT License.
+ 3. restart the server.
+ 
+ 
+**Tips:** By the same method, you can add your own helper to themes.(I think it's stupid to prevent users to add their own helpers.)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+1. Write the helper js file with the register method.
+(Ghost server's helpers are located in *core/server/helpers/\*\*.js*, which are registered by *core/server/helpers/index.js*.  Custom helper should register itself if you don't what to modified the server file.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+2. Add the new helper into checklist which is located in Ghost_Path/node_module/gscan/lib/spec.js
+  
+  
