@@ -9,20 +9,27 @@
 {{!-- Fitvids makes video embeds responsive and awesome --}}
 <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
 {{!-- The main JavaScript file for Casper --}}
-<script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+{{!--<script type="text/javascript" src="{{asset "js/index.js"}}"></script>--}}
 
-{{!-- Add by lius --}}
+{{!-- for bootstrap --}}
 
 <script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
 
 
+
+{{!-- for post toc --}}
 <script type="text/javascript">
 $(function() {
-    var fix = $('#lius-toc');                      //滚动悬浮块
+    var fix = $('#anthem-toc');                      //滚动悬浮块
     var end = $('#bottom');                     //滚动到这个元素后结束固定
     var fixTop = fix.offset().top,              //滚动悬浮块与顶部的距离
         fixHeight = fix.height();               //滚动悬浮块高度
     var endTop, miss;                           //结束元素与顶部的距离
+
+    var fixLeft = fix.offset().left;
+    var fixWidth = fix.width()+30;
+
+
 
     $(window).scroll(function() {
         //页面与顶部高度
@@ -35,7 +42,7 @@ $(function() {
         }
 
         if (fixTop < docTop) {
-            fix.css({'position': 'fixed'});
+            fix.css({'position': 'fixed',width:fixWidth});
             
             if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
                 fix.css({top: miss});           //滚动悬浮块滑到结束块上时，top值为负，即慢慢隐藏出浏览器
@@ -43,7 +50,7 @@ $(function() {
                 fix.css({top: 0});              //滚动悬浮块未到结束块上时，top为0
             }
         } else {
-            fix.css({'position': 'absolute'});
+            fix.css({'position': 'absolute',top:'',width:fixWidth});
             
         }
     })

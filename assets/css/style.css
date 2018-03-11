@@ -2,39 +2,44 @@
  * the element should all prefixed by "lius"
  */
 
-
+@font-face {
+    font-family: anthem-index-card-font;
+    src: url('../fonts/Coiny-Regular.ttf');
+}
 .row{
     overflow:hidden;
 }
 
-#lius-toc {
+#anthem-toc {
     /*background:url("../bkground/bk1.jpg");*/
     float:top;
 }
 @media screen and (max-width:500px) {
-    #lius-toc {
+    #anthem-toc {
         display:none;
     }
 }
-#lius-article {
+#anthem-article {
     float:right;
 }
 
-.lius-site-head {
+.anthem-site-head {
 
     background: #222 no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
 
-.lius-index-card {
+.anthem-index-card {
     height:100px;
+    font-family:anthem-index-card-font;
+    background-size:cover;
 }
 
-.lius-page-card {
+.anthem-page-card {
     height:50px;
 }
-.lius-img {
+.anthem-img {
     max-width:100%;
     max-height:100%;
     width:auto;
@@ -42,7 +47,7 @@
     margin:0 auto;
 }
 
-#lius-toc {
+#anthem-toc {
    
 }
 

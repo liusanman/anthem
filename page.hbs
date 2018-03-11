@@ -1,9 +1,8 @@
 {{!< default}}
 
-{{!-- This is a page template. A page outputs content just like any other post, and has all the same
-    attributes by default, but you can also customise it to behave differently if you prefer. --}}
+{{!--  --}}
 
-{{!-- Everything inside the #post tags pulls data from the page --}}
+{{!--  --}}
 {{#post}}
 
 
@@ -20,11 +19,11 @@
             
             {{#foreach tags}}
             <a href="/tag/{{slug}}">            
-            <li class="list-group-item lius-page-card" style="background:url('{{img_url feature_image}}') no-repeat center">
+            <li class="list-group-item anthem-page-card" style="background:url('{{img_url feature_image}}') no-repeat center">
               <span class="badge">
-                {{#get "tags"  filter="slug:{{slug}}"}}
-                  {{#foreach tags}}
-                    {{../pagination.total}} 
+                {{#get "tags" include="count.posts" filter="name:['{{name}}']"  }}
+                  {{#foreach tags}} 
+                    {{count.posts}}
                   {{/foreach}}
                 {{/get}}
               </span>
@@ -40,7 +39,7 @@
             
             {{#foreach tags}}
             <a href="/tag/{{slug}}">
-              <li class="list-group-item lius-page-card" >
+              <li class="list-group-item anthem-page-card" >
                 <p class="inner">{{description}}</p>
               </li>
             </a>

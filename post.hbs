@@ -6,7 +6,7 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<header class="lius-site-header post-head {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}">
+<header class="anthem-site-header post-head {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}">
     <nav class="main-nav {{#if feature_image}}overlay{{/if}} clearfix">
         {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
         {{#if @blog.navigation}}
@@ -17,15 +17,16 @@
 
 <main class="content" role="main">
     <div class="container">
-        <div class="row" id="lius-post-row">
-            <div class="col-md-3 col-xs-0 " id="lius-toc">
-                    <H2>Table</H2>
-              
-                <div class="pre-scrollable" style="float:top;  max-height:60vh; overflow:scroll">
-                    {{anthem_toc start="1" end="3"}}
-                </div>
+        <div class="row" id="anthem-post-row">
+          <div class="col-md-3 col-xs-0 " id="anthem-toc">
+            <div >
+              <H3>Table of Contents</H3>
+              <div class="pre-scrollable" style="float:top;  max-height:60vh; overflow:scroll">
+                  {{anthem_toc start="1" end="3"}}
+              </div>
             </div>
-            <div class="col-md-9 col-xs-12" id="lius-article">
+          </div>
+          <div class="col-md-9 col-xs-12" id="anthem-article">
 
 
 
@@ -140,3 +141,6 @@ var duoshuoQuery = {short_name:"anmane"};
      || document.getElementsByTagName('body')[0]).appendChild(ds);
 })();
 </script>
+
+
+
