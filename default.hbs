@@ -20,18 +20,17 @@
     <link href="{{asset "css/bootstrap.min.css"}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 
+    <script type="text/javascript" src="{{asset "js/jquery-3.3.1.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
+    
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 
-    <script>
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?3afb614ae8d214f9f07b479114042c8a";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
+   {{!-- for bootstrap --}}
+
+
+
+ 
 
 </head>
 <body class="{{body_class}} nav-closed">

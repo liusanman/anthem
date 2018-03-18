@@ -1,5 +1,5 @@
-/* this is the style add by lius
- * the element should all prefixed by "lius"
+/* this is the style add for Anthem
+ * the element should all prefixed by "anthem"
  */
 
 @font-face {
@@ -53,4 +53,8 @@
 
 .navbar-brand {
     color:black;
+}
+
+.affix {
+    top:90;
 }

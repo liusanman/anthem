@@ -6,14 +6,13 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<header class="anthem-site-header post-head {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if feature_image}}overlay{{/if}} clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-        {{#if @blog.navigation}}
-            {{!--navigation--}}
-        {{/if}}
-    </nav>
-</header>
+
+<script type="text/javascript" src="{{asset "js/toc.js"}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#toc").toc({content:".post-content",headings: "h2,h3,h4"});
+  });
+</script>
 
 <main class="content" role="main">
     <div class="container">
@@ -22,7 +21,8 @@
             <div >
               <H3>Table of Contents</H3>
               <div class="pre-scrollable" style="float:top;  max-height:60vh; overflow:scroll">
-                  {{anthem_toc start="1" end="3"}}
+                <ul id="toc"><ul>
+                  {{!--anthem_toc start="1" end="3"--}}
               </div>
             </div>
           </div>
@@ -130,17 +130,6 @@
 
 {{/post}}
 
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"anmane"};
-(function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
 
 
 
