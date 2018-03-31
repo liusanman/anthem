@@ -6,7 +6,7 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-
+<link href='http://fonts.font.im/css?family=Lato' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="{{asset "js/toc.js"}}"></script>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -14,7 +14,7 @@
     if(toc.parent().height()>2)
       toc.css({'display':'inline'});
 
-    $("#toc").toc({content:".post-content",headings: "h1,h2,h3"});
+    $("#toc").toc({content:".post-content",headings: "h2,h3,h4"});
   });
 </script>
 
