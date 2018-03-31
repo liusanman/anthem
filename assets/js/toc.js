@@ -55,13 +55,13 @@
                         text = "?";
                     }
 
-                    var baseId = text.replace(/\s+/g, "_"), suffix = "", count = 1;
+                    var baseId = text.replace(/\s+/g, "_"), suftoc = "", count = 1;
 
-                    while (document.getElementById(baseId + suffix) !== null) {
-                        suffix = "_" + count++;
+                    while (document.getElementById(baseId + suftoc) !== null) {
+                        suftoc = "_" + count++;
                     }
 
-                    return baseId + suffix;
+                    return baseId + suftoc;
                 };
 
                 return attr || generateUniqueId($(this).text());
@@ -111,34 +111,50 @@
     });
 }(window.jQuery));
 
+
 $(function() {
-    var fix = $('#anthem-toc');                      //滚动悬浮块
-    var end = $('#bottom');                     //滚动到这个元素后结束固定
-    var fixTop = fix.offset().top,              //滚动悬浮块与顶部的距离
-        fixHeight = fix.height();               //滚动悬浮块高度
-    var endTop, miss;                           //结束元素与顶部的距离
-    var fixLeft = fix.offset().left;
-    var fixWidth = fix.width()+30;
-    $(window).scroll(function() {
-        //页面与顶部高度
-        var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-        docTop = Math.max($(this).scrollTop(),docTop);
-        //如果有结束块
-        if (end.length > 0) {
-            endTop = end.offset().top;
-            miss = endTop - docTop - fixHeight;
-        }
-        if (fixTop < docTop) {
-            fix.css({'position': 'fixed',width:fixWidth});
-            
-            if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
-                fix.css({top: miss});           //滚动悬浮块滑到结束块上时，top值为负，即慢慢隐藏出浏览器
-            } else{
-                fix.css({top: 0});              //滚动悬浮块未到结束块上时，top为0
-            }
-        } else {
-            fix.css({'position': 'absolute',top:'',width:fixWidth});
-            
-        }
-    })
+  var toc = $('#anthem-toc'); //滚动悬浮块
+  var post= $('#anthem-article');
+  var tocTop = toc.offset().top,             //滚动悬浮块与顶部的距离
+      tocHeight = toc.height();               //滚动悬浮块高度
+  var tocWidth;
+  function tocShowController() {
+    if(toc.parent().width()<toc.width()+post.width()||toc.width()<0)
+      toc.css({'display':'none'});
+    else {
+      toc.css({'display':'inline'});
+    }
+  }
+  function tocFixController() {
+    //页面与顶部高度
+    var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    docTop = Math.max($(this).scrollTop(),docTop);
+
+    if (tocTop < docTop) {
+      console.log(toc.width());
+      tocWidth=toc.css('width');
+      toc.css({'position': 'fixed',width:tocWidth});
+      toc.css({top:0});
+     
+    } else {
+      toc.css({'position': 'inherit',top:'',width:''});
+    }
+
+  }
+
+
+  $(window).ready(function() {
+    tocTop = toc.offset().top;
+    tocShowController();
+    tocFixController();
+  });
+  $(window).scroll(function() {
+    tocFixController();
+  });
+ 
+  $(window).resize(function() {
+    
+    tocShowController();  
+  })
+  
 });

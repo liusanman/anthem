@@ -10,21 +10,22 @@
 <script type="text/javascript" src="{{asset "js/toc.js"}}"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#toc").toc({content:".post-content",headings: "h2,h3,h4"});
+    var toc = $('#anthem-toc');
+    if(toc.parent().height()>2)
+      toc.css({'display':'inline'});
+
+    $("#toc").toc({content:".post-content",headings: "h1,h2,h3"});
   });
 </script>
 
-<main class="content" role="main">
-    <div class="container">
+<main class="content" role="main" >
+    <div class="container" >
         <div class="row" id="anthem-post-row">
           <div class="col-md-3 col-xs-0 " id="anthem-toc">
-            <div >
               <H3>Table of Contents</H3>
-              <div class="pre-scrollable" style="float:top;  max-height:60vh; overflow:scroll">
+              <div class="pre-scrollable" style="float:top;max-height:75vh">
                 <ul id="toc"><ul>
-                  {{!--anthem_toc start="1" end="3"--}}
               </div>
-            </div>
           </div>
           <div class="col-md-9 col-xs-12" id="anthem-article">
 
@@ -74,21 +75,7 @@
                           <div class="ds-thread" data-thread-key="{{slug}}" data-title="{{{title}}}" data-url="{{url absolute="true"}}"></div>
                         </section>
 
-                        <section class="share">
-                            <h4>Share this post</h4>
-                            <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
-                                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                                <span class="hidden">Twitter</span>
-                            </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                                <span class="hidden">Facebook</span>
-                            </a>
-                            <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                                <span class="hidden">Google+</span>
-                            </a>
-                        </section>
+                        
 
                         {{!-- Email subscribe form at the bottom of the page --}}
                         {{#if @labs.subscribers}}
@@ -108,25 +95,6 @@
     </div>
 </main>
 
-{{!-- Links to Previous/Next posts --}}
-<aside class="read-next">
-    {{#next_post}}
-    <a class="read-next-story {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/next_post}}
-    {{#prev_post}}
-    <a class="read-next-story prev {{#if feature_image}}" style="background-image: url({{img_url feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/prev_post}}
-</aside>
 
 {{/post}}
 

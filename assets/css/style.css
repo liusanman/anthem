@@ -48,7 +48,9 @@
 }
 
 #anthem-toc {
-   
+    display:none;
+    padding-bottom:100%;
+    
 }
 
 .navbar-brand {
