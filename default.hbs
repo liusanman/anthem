@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{!-- Document Settings --}}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116672219-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    {{!-- Mobile Meta --}}
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    gtag('config', 'UA-116672219-1');
+  </script>
 
-    {{!-- Brand icon --}}
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
 
-    {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "css/googlefont.css"}}" />
-    
-    {{!-- Add by lius --}}
-    <link href="{{asset "css/bootstrap.min.css"}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+  {{!-- Document Settings --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script type="text/javascript" src="{{asset "js/jquery-3.3.1.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
-    
-    {{!-- Ghost outputs important style and meta data with this tag --}}
-    {{ghost_head}}
+  {{!-- Mobile Meta --}}
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   {{!-- for bootstrap --}}
+  {{!-- Brand icon --}}
+  <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+  {{!-- Styles'n'Scripts --}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/googlefont.css"}}" />
+  
+  {{!-- Add by lius --}}
+  <link href="{{asset "css/bootstrap.min.css"}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+  <script type="text/javascript" src="{{asset "js/jquery-3.3.1.min.js"}}"></script>
+  <script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
+  
+  {{!-- Ghost outputs important style and meta data with this tag --}}
+  {{ghost_head}}
+
+  {{!-- for bootstrap --}}
 
 
 

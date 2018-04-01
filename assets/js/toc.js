@@ -131,7 +131,6 @@ $(function() {
     docTop = Math.max($(this).scrollTop(),docTop);
 
     if (tocTop < docTop) {
-      console.log(toc.width());
       tocWidth=toc.css('width');
       toc.css({'position': 'fixed',width:tocWidth});
       toc.css({top:0});
