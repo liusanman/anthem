@@ -85,17 +85,20 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.6);
     padding: 15px 20px;
 }
 
-.post-masonry .post-thumb .title-over h4 {
-    font-size: 16px;
+.post-masonry .post-thumb .title-over h2 {
+    text-align:center;
     font-family: 'anthem-index-card-font';
+    color:orange;
 }
 
+
+
 .post-masonry .post-thumb .title-over a {
-    color: #fff;
+    /*color: #fff;*/
 }
 
 .post-masonry .post-thumb .post-hover {
@@ -124,9 +127,9 @@
 }
 
 .post-masonry .post-thumb .post-hover h4 {
-    font-size: 16px;
     font-family: 'anthem-index-card-font';
     margin-bottom: 10px;
+    color:orange;
 }
 
 .post-masonry .post-thumb .post-hover a {
@@ -140,6 +143,7 @@
 
 .post-masonry .post-thumb .post-hover p {
     font-size: 12px;
+    color:white;
 }
 
 .post-masonry .post-thumb .post-hover span {
