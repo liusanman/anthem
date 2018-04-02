@@ -33,9 +33,9 @@
 }
 
 .anthem-index-card {
-    height:100px;
+    /*height:100px;*/
     font-family:anthem-index-card-font;
-    background-size:cover;
+    /*background-size:cover;*/
 }
 
 .anthem-page-card {
@@ -62,3 +62,106 @@
 .affix {
     top:90;
 }
+
+
+
+.post-masonry {
+    margin-bottom: 30px;
+}
+
+.post-masonry .post-thumb {
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-masonry .post-thumb img {
+    width: 100%;
+    display: block;
+}
+
+.post-masonry .post-thumb .title-over {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.9);
+    padding: 15px 20px;
+}
+
+.post-masonry .post-thumb .title-over h4 {
+    font-size: 16px;
+    font-family: 'anthem-index-card-font';
+}
+
+.post-masonry .post-thumb .title-over a {
+    color: #fff;
+}
+
+.post-masonry .post-thumb .post-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 70px;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.9);
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+.post-masonry .post-thumb .post-hover .inside {
+    position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.post-masonry .post-thumb .post-hover h4 {
+    font-size: 16px;
+    font-family: 'anthem-index-card-font';
+    margin-bottom: 10px;
+}
+
+.post-masonry .post-thumb .post-hover a {
+    color: #fff !important;
+}
+
+.post-masonry .post-thumb .post-hover i {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-masonry .post-thumb .post-hover p {
+    font-size: 12px;
+}
+
+.post-masonry .post-thumb .post-hover span {
+    font-size: 12px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.post-masonry .post-thumb:hover .title-over {
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    bottom: -50px;
+}
+
+.post-masonry .post-thumb:hover .post-hover {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+}
+

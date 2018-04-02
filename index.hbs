@@ -6,11 +6,13 @@
 {{!-- The main content area on the homepage --}}
 
 
+<script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
-<div class="container" id="test">
+
+<div class="container">
   {{!-- Panels displayed here. Each panel is linked the a static page named 'index1-5' --}}
   
-  
+  {{!--
   {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
     {{#foreach pages}}
       {{#if @odd}}
@@ -39,6 +41,37 @@
       {{/if}}
     {{/foreach}}
   {{/get}}
+  --}}
+
+  <div class="row">
+    <div class="blog-masonry masonry-true" >
+  {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
+      
+    {{#foreach pages}}
+      <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
+        <div class="post-thumb">
+          <a href="{{url}}">
+          <img src="{{img_url feature_image}}" alt="">
+            <div class="title-over">
+              <h4>{{title}}</h4>
+            </div>
+            <div class="post-hover text-center">
+              <div class="inside">
+                <h4>{{title}}</h4>
+                {{content}}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    {{/foreach}}
+    {{/get}}
+    </div>
+  </div>
+
+
+
 
 <main id="content" class="content" role="main">
 
