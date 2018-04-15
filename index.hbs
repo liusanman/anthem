@@ -8,74 +8,41 @@
 
 <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
+{{!-- The main content area --}}
+<main id="site-main" class="container site-main" role="main">
 
-<div class="container">
   {{!-- Panels displayed here. Each panel is linked the a static page named 'index1-5' --}}
+  <div class="row">
+    <div class="blog-masonry masonry-true" >
+    {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
   
-  {{!--
-  {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
     {{#foreach pages}}
-      {{#if @odd}}
-        <div class="row">
-      {{/if}}
-          <div class="col-md-6">
-              <div class="panel panel-default">
-                <div class="panel-body anthem-index-card" style="background:url({{img_url feature_image}}) no-repeat">
-                  <h4>{{excerpt}}</h4>
-                </div>
+        <div class="post-masonry anthem-index-card col-md-4 col-sm-6">
+          <div class="post-thumb">
             <a href="{{url}}">
-                
-                <div class="panel-footer">
-                  <H3>{{title}}</H3>
-                  <p></p>
+              <img src="{{img_url feature_image}}" alt="">
+              <div class="title-over">
+                <h2>{{title}}</h2>
+              </div>
+              <div class="post-hover text-center">
+                <div class="inside">
+                  <h3>{{title}}</h3>
+                  {{content}}
                 </div>
               </div>
             </a>
           </div>
-      {{#if @even}}
         </div>
-      {{else}}
-        {{#if @last}}
-          </div>
-        {{/if}}
-      {{/if}}
-    {{/foreach}}
-  {{/get}}
-  --}}
-
-  <div class="row">
-    <div class="blog-masonry masonry-true" >
-  {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
-      
-    {{#foreach pages}}
-      <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
-        <div class="post-thumb">
-          <a href="{{url}}">
-          <img src="{{img_url feature_image}}" alt="">
-            <div class="title-over">
-              <h2>{{title}}</h2>
-            </div>
-            <div class="post-hover text-center">
-              <div class="inside">
-                <h4>{{title}}</h4>
-                {{content}}
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
     {{/foreach}}
     {{/get}}
     </div>
   </div>
-
-
-
-
-<main id="content" class="content" role="main">
-
-    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
-    {{> "loop"}}
-
-</main> 
+  <div class="post-feed">
+  {{#get "posts"  include="author,tags" filter="featured:true" }}
+  {{#foreach posts}}
+    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+    {{> "post-card"}}
+  {{/foreach}}
+  {{/get}}
+  </div>
+</main>

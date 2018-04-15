@@ -2,9 +2,17 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{!-- The main content area on the homepage --}}
-<main class="content" role="main">
+<main id="site-main" class="container site-main" role="main">
+  <div class="row anthem-tag-card">
+  </div>
 
-    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
-    {{> "loop"}}
-
+  <div class="row"> 
+    <div class="post-feed">
+    {{#foreach posts}}
+      {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+      {{> "post-card"}}
+    {{/foreach}}
+    </div>
+  
+  </div>
 </main>

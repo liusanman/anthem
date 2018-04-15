@@ -1,73 +1,73 @@
 {{!< default}}
 
-{{!--  --}}
 
-{{!--  --}}
 {{#post}}
 
+<script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
-<div class="container">
-  <div class="col-md-2 col-xs-0"></div>
-  <div class="col-md-8 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <b>Collection of: {{title}}</b>
-      </div>
-      <div class="panel-body">
-        <div class="col-md-4" >
-          <ul class="list-group">
-            
-            {{#foreach tags}}
-            <a href="/tag/{{slug}}">            
-            <li class="list-group-item anthem-page-card" style="background:url('{{img_url feature_image}}') no-repeat center">
-              <span class="badge">
-                {{#get "tags" include="count.posts" filter="name:['{{name}}']"  }}
-                  {{#foreach tags}} 
-                    {{count.posts}}
-                  {{/foreach}}
-                {{/get}}
-              </span>
-              <h2 class="inner">{{name}}</h2>
-            </li>
-            </a>            
-            {{/foreach}}
-          </ul>
-        </div>
-          
-        <div class="col-md-8">
-          <ul class="list-group">
-            
-            {{#foreach tags}}
-            <a href="/tag/{{slug}}">
-              <li class="list-group-item anthem-page-card" >
-                <p class="inner">{{description}}</p>
-              </li>
-            </a>
-            {{/foreach}}
-          </ul>
-        </div>        
-      </div>
-      
-
-    </div>
-  </div>
-  <div class="col-md-2 col-xs-0"></div>
-  
-
-</div>
-
-<main class="content" role="main">
-    <article class="{{post_class}}">
-
-
-        <section class="post-content">
+<main id="site-main" class="site-main container" role="main">
+  <div class="row">
+    <!--div class="col-md-2 col-xs-0"></div-->
+    <div class="col-md-12 col-xs-12">
+      <div class="panel panel-default font-coiny">
+        <div class="panel-heading">
+          <H2>Collection of: {{title}}</H2>
+          <div style="text-align:center">
+            <div style="display:inline-block" style="font-size:30px">
             {{content}}
-        </section>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row" >
+            <div class="blog-masonry masonry-true" > 
+            {{#foreach tags}}
+              <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
+                <div class="post-thumb">
+                  <a href="{{url}}">
+                    <img src="{{img_url feature_image}}" alt="">
+                    <div class="title-over">
+                      <span class="badge right">
+                        {{#get "tags" include="count.posts" filter="name:['{{name}}']"  }}
+                          {{#foreach tags}} 
+                            {{count.posts}}
+                          {{/foreach}}
+                        {{/get}}
+                      </span>
+                      <h2>{{name}}</h2>
+                    </div>
+                    <div class="post-hover text-center">
+                      <div class="inside">
+                        <h3>{{name}}</h3>
+                        {{description}}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            {{/foreach}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--div class="col-md-2 col-xs-0"></div--> 
+  </div> 
 
-    </article>
-</main>
+  <div class="post-feed">
+  {{#foreach tags as |tag|}}
+    {{#get "posts" filter="tags:['{{slug}}']" as |post|}}
+    
+    {{#foreach posts}}
+      {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+      {{> "post-card"}}
+    {{/foreach}}
+    {{/get}}
+  {{/foreach}}
+  </div>
 
-   
+
+</div>  
 
 
 

@@ -16,7 +16,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  {{!-- Mobile Meta --}}
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>  
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -45,16 +46,16 @@
 
 </head>
 <body class="{{body_class}} nav-closed">
+    <div class="site-wrapper">
 
     {{> header }}
 
-    <div class="site-wrapper">
         {{{body}}}
-    </div>
 
     {{> footer }}
-
+    </div>
     {{!-- Ghost outputs important scripts and data with this tag --}}
     {{ghost_foot}}
+    
 </body>
 </html>

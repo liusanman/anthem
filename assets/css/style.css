@@ -24,17 +24,22 @@
     font-family: Lato,Helvetica Neue,Helvetica,sans-serif;
     font-size:18px;
 }
-
+.font-coiny {
+    font-family: anthem-index-card-font;
+}
 .anthem-site-head {
 
     background: #222 no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
-
+.anthem-site-head-content {
+    background: rgba(255,255,255,0.5);
+}
 .anthem-index-card {
     /*height:100px;*/
     font-family:anthem-index-card-font;
+    
     /*background-size:cover;*/
 }
 
@@ -63,20 +68,29 @@
     top:90;
 }
 
-
+.right {
+    position:absolute;
+    right:5px;
+}
 
 .post-masonry {
     margin-bottom: 30px;
+    font-family: 'anthem-index-card-font';
+    
+    
 }
 
 .post-masonry .post-thumb {
     border: 10px solid #fff;
     overflow: hidden;
     position: relative;
+    border-radius: 20px;
+    
 }
 
 .post-masonry .post-thumb img {
     width: 100%;
+    height: 180px;
     display: block;
 }
 
@@ -142,7 +156,7 @@
 }
 
 .post-masonry .post-thumb .post-hover p {
-    font-size: 12px;
+    font-size: 16px;
     color:white;
 }
 
