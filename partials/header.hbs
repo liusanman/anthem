@@ -1,11 +1,27 @@
 <header class="site-header no-cover">
     <div class="container">
-      <div class="anthem-site-head {{#if tag.feature_image}}" style="background-image: url({{tag.feature_image}}){{else}}{{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}{{/if}}">
+      <div class="anthem-site-head
+          {{#if tag.feature_image}}" style="background-image: url({{tag.feature_image}})
+          {{else}}
+            {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}})
+            {{else}}no-cover
+            {{/if}}
+          {{/if}}" 
+
+>
 
         <div class="site-header-content inner">
           <div class="anthem-site-head-content font-coiny">
-            <h1 class="site-title" style="font-size:88px">{{#if tag.name}}{{tag.name}}{{else}}{{@blog.title}}{{/if}}</h1>
+            <h1 class="site-title" style="font-size:88px">
+              
+                {{#if tag.name}}
+                  {{tag.name}}
+                {{else}}
+                  {{@blog.title}}
+                {{/if}}
+            </h1>
             <h2 class="site-description font-coiny" style="color:black;">
+              
                 {{#if tag.description}}
                     {{tag.description}}
                 {{else}}
