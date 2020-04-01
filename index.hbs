@@ -6,16 +6,16 @@
 {{!-- The main content area on the homepage --}}
 
 
-<script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
 {{!-- The main content area --}}
 <main id="site-main" class="container site-main" role="main">
 
   {{!-- Panels displayed here. Each panel is linked the a static page named 'index1-5' --}}
-  <div class="row">
     <div class="blog-masonry masonry-true" >
-    {{#get "posts" filter="page:true" order="title asc" as |pages pagination|}}
-  
+        <div class="row">
+
+    {{#get "pages" order="title asc"}}
+
     {{#foreach pages}}
         <div class="post-masonry anthem-index-card col-md-4 col-sm-6">
           <div class="post-thumb">
@@ -34,15 +34,19 @@
           </div>
         </div>
     {{/foreach}}
+    {{else}}
+      <p class="error">{{error}}</p>
     {{/get}}
     </div>
   </div>
   <div class="post-feed">
-  {{#get "posts"  include="author,tags" filter="featured:true" }}
+  {{#get "posts"  include="authors,tags" filter="featured:true" }}
   {{#foreach posts}}
     {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
     {{> "post-card"}}
   {{/foreach}}
+  {{else}}
+      <p class="error">{{error}}</p>
   {{/get}}
   </div>
 </main>

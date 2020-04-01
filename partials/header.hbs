@@ -3,7 +3,7 @@
       <div class="anthem-site-head
           {{#if tag.feature_image}}" style="background-image: url({{tag.feature_image}})
           {{else}}
-            {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}})
+            {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}})
             {{else}}no-cover
             {{/if}}
           {{/if}}" 
@@ -17,7 +17,7 @@
                 {{#if tag.name}}
                   {{tag.name}}
                 {{else}}
-                  {{@blog.title}}
+                  {{@site.title}}
                 {{/if}}
             </h1>
             <h2 class="site-description font-coiny" style="color:black;">
@@ -25,7 +25,7 @@
                 {{#if tag.description}}
                     {{tag.description}}
                 {{else}}
-                    {{@blog.description}}
+                    {{@site.description}}
                 {{/if}}
             </h2>
           </div>

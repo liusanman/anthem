@@ -1,129 +1,218 @@
 {{!< default}}
 
-{{!-- The comment above "< default" means - insert everything in this file into
-    the {{{body}}} of the default.hbs template, containing the blog header/footer. --}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<link href='http://fonts.font.im/css?family=Lato' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="{{asset "js/toc.js"}}"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    var toc = $('#anthem-toc');
-    if(toc.parent().height()>2)
-      toc.css({'display':'inline'});
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+         
+        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
-    $("#toc").toc({content:".post-content",headings: "h2,h3,h4"});
-  });
-</script>
+            <header class="post-full-header">
 
-<main class="content" role="main" >
-    <div class="container" >
-        <div class="row" id="anthem-post-row">
-          <div class="col-md-3 col-xs-0 " id="anthem-toc">
-              <H3>Table of Contents</H3>
-              <div class="pre-scrollable" style="float:top;max-height:75vh">
-                <ul id="toc"><ul>
-              </div>
-          </div>
-          <div class="col-md-9 col-xs-12" id="anthem-article">
+                {{#if primary_tag}}
+                <section class="post-full-tags">
+                    {{#primary_tag}}
+                    <a href="{{url}}">{{name}}</a>
+                    {{/primary_tag}}
+                </section>
+                {{/if}}
 
+                <h1 class="post-full-title">{{title}}</h1>
 
+                {{#if custom_excerpt}}
+                <p class="post-full-custom-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
 
-                <article class="{{post_class}}">
+                <div class="post-full-byline">
 
-                    <header class="post-header">
-                        <h1 class="post-title">{{title}}</h1>
-                        <section class="post-meta">
-                            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
-                        </section>
-                    </header>
+                    <section class="post-full-byline-content">
 
-                    <section class="post-content">
-                        {{content}}
-                    </section>
+                        <ul class="author-list">
+                            {{#foreach authors}}
+                            <li class="author-list-item">
 
-                    <footer class="post-footer">
+                                <div class="author-card">
+                                    {{#if profile_image}}
+                                    <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                                    {{else}}
+                                    <div class="author-profile-image">{{> "icons/avatar"}}</div>
+                                    {{/if}}
+                                    <div class="author-info">
+                                        {{#if bio}}
+                                        <div class="bio">
+                                            <h2>{{name}}</h2>
+                                            <p>{{bio}}</p>
+                                            <p><a href="{{url}}">More posts</a> by {{name}}.</p>
+                                        </div>
+                                        {{else}}
+                                        <h2>{{name}}</h2>
+                                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                                        {{/if}}
+                                    </div>
+                                </div>
 
-                    {{!-- Everything inside the #author tags pulls data from the author --}}
-                    {{#author}}
+                                {{#if profile_image}}
+                                <a href="{{url}}" class="author-avatar">
+                                    <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                                </a>
+                                {{else}}
+                                <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                                {{/if}}
 
-                        {{#if feature_image}}
-                        <figure class="author-image">
-                            <a class="img" href="{{url}}" style="background-image: url({{img_url feature_image}})"><span class="hidden">{{name}}'s Picture</span></a>
-                        </figure>
-                        {{/if}}
+                            </li>
+                            {{/foreach}}
+                        </ul>
 
-                        <section class="author">
-                            <h4><a href="{{url}}">{{name}}</a></h4>
-
-                            {{#if bio}}
-                                <p>{{bio}}</p>
-                            {{else}}
-                                <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                            {{/if}}
-                            <div class="author-meta">
-                                {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                                {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name">{{authors}}</h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
                             </div>
                         </section>
 
-                    {{/author}}
+                    </section>
 
-                        <section class="post-comments">
-                          <div id="disqus_thread"></div>
-<script>
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                </div>
+            </header>
 
-var disqus_config = function () {
-  this.page.url = "{{url absolute="true"}}";  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = "ghost-{{comment_id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
+            <!--
+            {{#if feature_image}}
+            <figure class="post-full-image">
+                {{!-- This is a responsive image, it loads different sizes depending on device
+                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w,
+                            {{img_url feature_image size="xl"}} 2000w"
+                    sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{title}}"
+                />
+            </figure>
+            {{/if}}
+            -->
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://anghostblog.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <section class="post-full-content">
+                 <aside class="toc-container">
+		              <div class="toc"></div>
+	              </aside>
 
-                        </section>
+                <div class="post-content">
+                    {{content}}
+                </div>
+            </section>
 
-                        
+            {{!-- Email subscribe form at the bottom of the page --}}
+            {{#if @labs.members}}
+                {{> subscribe-form}}
+            {{/if}}
 
-                        {{!-- Email subscribe form at the bottom of the page --}}
-                        {{#if @labs.subscribers}}
-                        <section class="gh-subscribe">
-                            <h3 class="gh-subscribe-title">Subscribe to {{@blog.title}}</h3>
-                            <p>Get the latest posts delivered right to your inbox.</p>
-                            {{subscribe_form placeholder="Your email address"}}
-                            <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a> with Feedly!</span>
-                        </section>
-                        {{/if}}
+            {{!--
+            <section class="post-full-comments">
+                If you want to embed comments, this is a good place to do it!
+            </section>
+            --}}
 
-                    </footer>
+        </article>
 
-                </article>
-            </div>
-        </div>
     </div>
 </main>
 
+{{!-- Links to Previous/Next posts --}}
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            {{#if primary_tag}}
+            {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
+                {{#if related_posts}}
+                <article class="read-next-card">
+                    <header class="read-next-card-header">
+                        {{#../primary_tag}}
+                        <h3><span>More in</span> <a href="{{url}}">{{name}}</a></h3>
+                        {{/../primary_tag}}
+                    </header>
+                    <div class="read-next-card-content">
+                        <ul>
+                            {{#foreach related_posts}}
+                            <li>
+                                <h4><a href="{{url}}">{{title}}</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> –
+                                        {{reading_time}}</p>
+                                </div>
+                            </li>
+                            {{/foreach}}
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}}
+                            →</a>
+                    </footer>
+                </article>
+                {{/if}}
+            {{/get}}
+            {{/if}}
 
+            {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
+            {{#next_post}}
+                {{> "post-card"}}
+            {{/next_post}}
 
-
-
-
-  <script id="dsq-count-scr" src="//anblogdisqus.disqus.com/count.js" async></script>
+            {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
+            {{#prev_post}}
+                {{> "post-card"}}
+            {{/prev_post}}
+        </div>
+    </div>
+</aside>
 
 {{/post}}
 
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
 
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
 
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
 
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+{{/contentFor}}

@@ -1,18 +1,6 @@
-(function($) {
+(function($) {"use strict";	})(jQuery);
 
-	"use strict";	
-
-  
-
-
-})(jQuery);
-
-
-
-
-
-
-$(window).load(function () {
+$(window).on("load",function () {
     blogisotope = function () {
         var e, t = $(".blog-masonry").width(),
             n = Math.floor(t);
@@ -31,6 +19,7 @@ $(window).load(function () {
         }
         return e
     };
+    /*
     var r = $(".blog-masonry");
     bloggingisotope = function () {
         r.isotope({
@@ -42,5 +31,5 @@ $(window).load(function () {
         })
     };
     bloggingisotope();
-    $(window).smartresize(bloggingisotope)
+    $(window).smartresize(bloggingisotope)*/
 })

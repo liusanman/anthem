@@ -2,9 +2,10 @@
     "name": "anthem",
     "description": "an simple theme",
     "demo": "https://www.anmane.com",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "engines": {
-        "ghost": ">=1.0.0"
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
     },
     "license": "MIT",
     "screenshots": {
@@ -13,7 +14,7 @@
     },
     "author": {
         "name": "liusanman",
-        "email": "liushuo.int@gmail.com",
+        "email": "liusricha@gmail.com",
         "url": "https://www.anmane.com"
     },
     "gpm": {
@@ -25,7 +26,8 @@
     },
     "keywords": [
         "ghost",
-        "theme"
+        "theme",
+        "ghost-theme"
     ],
     "repository": {
         "type": "git",
