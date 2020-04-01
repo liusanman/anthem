@@ -1,220 +1,108 @@
 
-  
+.post-content h2,
+.post-content h3 {
+	outline: none;
+}
+body {
+	overflow: visible;
+}
+.post-full-content {
+	display: grid;
+	grid-template-columns: 1fr 0.2fr;
+	padding: 0 0 6vw;
+	margin: 0;
+}
+.toc-container {
+	order: 1;
+}
+.toc-container .toc {
+	position: sticky;
+	top: 70px;
+	min-width: 260px;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.6em;
+	padding: 0 0.8em;
+}
+.is-active-link::before {
+	background-color: #3eb0ef;
+}
+ol.toc-list {
+	margin: 0;
+}
 
-  .content {
-    width: 70%;
-    margin: 0 auto;
-   }
-  
-  article img {
-    display: block;
-    max-width: 100%;
+
+
+
+
+.site-header-background:before {
+    background: rgba(0,0,0,0)!important;
+}
+.site-nav li a {
+    color: rgb(55, 110, 220)!important;
+    font-size: large;
+    font-weight: 700;
+}
+.site-header-content .site-title {
+    color: rgb(3, 3, 3);
+    font-family: anthem-title-font;
+    font-size: 8rem;
+
+}
+
+.site-nav-logo {
+    font-family: anthem-title-font;
+    font-size: 3rem;
+
+}
+.navbar {
+    background-color: rgba(0,0,0,0);
+}
+
+.navbar-nav li{
+    margin-left:30px;
+    margin-right:0px;
   }
-  
-  .kg-width-wide {
-    position: relative;
-    width: 85vw;
-    min-width: 100%;
-    margin: auto calc(50% - 50vw);
-    transform: translateX(calc(50vw - 50%));
-  }
-  
-  .kg-width-full {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  }
-  
-  article figure {
-    margin: 0;
-  }
-  
-  article figcaption {
-    text-align: center;
-  }
-  
-  body {
-    margin: 0;
-  }
-  
-  header, footer {
-    padding: 15px 25px;
-    background-color: #000;
-    color: #fff;
-  }
-  /*
 
-  .kg-bookmark-card {
-    width: 100%;
-    position: relative;
+.site-nav-content {
+    top:-5px;
+    font-family: anthem-title-font;
 }
 
-.kg-bookmark-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    color: currentColor;
-    font-family: inherit;
-    text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+.card-header {
+    font-family: anthem-title-font;
+    font-size: 3rem;
+    bottom: -15px;
+    height: 40px;
+}
+.card {
+    border-color: rgba(0,0,0,0);
 }
 
-.kg-bookmark-container:hover {
-    text-decoration: none;
+.post-father-card {
+    background-color: rgba(0,0,0,0.1);
+}
+/*
+.site-main {
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-.kg-bookmark-content {
-    flex-basis: 0;
-    flex-grow: 999;
-    padding: 20px;
-    order: 1;
-}
-
-.kg-bookmark-title {
-    font-weight: 600;
-}
-
-.kg-bookmark-metadata,
-.kg-bookmark-description {
-    margin-top: .5em;
-}
-
-.kg-bookmark-metadata {
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.kg-bookmark-description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-}
-
-.kg-bookmark-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    vertical-align: text-bottom;
-    margin-right: .5em;
-    margin-bottom: .05em;
-}
-
-.kg-bookmark-thumbnail {
-    display: flex;
-    flex-basis: 24rem;
-    flex-grow: 1;
-}
-
-.kg-bookmark-thumbnail img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: bottom;
-    object-fit: cover;
-}
-
-.kg-bookmark-author {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.kg-bookmark-publisher::before {
-    content: "•";
-    margin: 0 .5em;
+.post-card {
+    background-color: beige;
 }
 */
-/* this is the style add for Anthem
- * the element should all prefixed by "anthem"
- */
-
- .nav-item { 
-     font-size: 180%!important;
- }
-
-
-
-
 @font-face {
-    font-family: anthem-index-card-font;
+    font-family: anthem-title-font;
     src: url('../fonts/Coiny-Regular.ttf');
 }
-.row{
-    overflow:hidden;
-}
 
-#anthem-toc {
-    /*background:url("../bkground/bk1.jpg");*/
-    float:top;
-}
-@media screen and (max-width:500px) {
-    #anthem-toc {
-        display:none;
-    }
-}
-#anthem-article {
-    float:right;
-    font-family: Lato,Helvetica Neue,Helvetica,sans-serif;
-    font-size:18px;
-}
-.font-coiny {
-    font-family: anthem-index-card-font;
-}
-.anthem-site-head {
 
-    background: #222 no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
-}
-.anthem-site-head-content {
-    background: rgba(255,255,255,0.5);
-}
-.anthem-index-card {
-    /*height:100px;*/
-    font-family:anthem-index-card-font;
-    
-    /*background-size:cover;*/
-}
-
-.anthem-page-card {
-    height:50px;
-}
-.anthem-img {
-    max-width:100%;
-    max-height:100%;
-    width:auto;
-    height:auto;
-    margin:0 auto;
-}
-
-#anthem-toc {
-    display:none;
-    padding-bottom:100%;
-    
-}
-
-.navbar-brand {
-    color:black;
-}
-
-.affix {
-    top:90;
-}
-
-.right {
-    position:absolute;
-    right:5px;
-}
 
 .post-masonry {
     margin-bottom: 30px;
-    font-family: 'anthem-index-card-font';
-    
+    font-family: 'anthem-title-font';
+    margin-top: 20px;
     
 }
 
@@ -243,7 +131,7 @@
 
 .post-masonry .post-thumb .title-over h2 {
     text-align:center;
-    font-family: 'anthem-index-card-font';
+    font-family: 'anthem-title-font';
     color:orange;
 }
 
@@ -279,7 +167,7 @@
 }
 
 .post-masonry .post-thumb .post-hover h4 {
-    font-family: 'anthem-index-card-font';
+    font-family: 'anthem-title-font';
     margin-bottom: 10px;
     color:orange;
 }
@@ -321,3 +209,42 @@
     opacity: 1;
 }
 
+
+/**/
+/* Offset headings from fixed header */
+.post-content h2::before,
+.post-content h3::before {
+    display: block;
+    content: " ";
+    height: 84px;
+    margin-top: -84px;
+    visibility: hidden;
+}
+
+/* Adjust content wrapper */
+.post-content {
+    display: block;
+}
+
+/* Adjustments to wide and full width cards */
+.kg-gallery-card,
+.kg-width-wide,
+.kg-width-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kg-gallery-card > *,
+.kg-width-wide > *,
+.kg-width-full > *,
+figure.kg-width-full img {
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.post-full-content pre {
+    max-width: 0;
+}
+
+/**/

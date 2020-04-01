@@ -1,21 +1,13 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="nav ">
+<nav class="navbar navbar-expand-lg navbar-light  ">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class=" navbar-nav mr-auto">
       {{#foreach navigation}}
       <li class="nav-item {{slug}}{{#if current}} active{{/if}}">
-      <a class="nav-link " href="{{url absolute="true"}}">{{label}}</a>
+        <a class="nav-link " href="{{url absolute="true"}}">{{label}}</a>
+        </li>
        {{/foreach}}
-       
-    </li>
-      
-      
     </ul>
-    <ul class="my-2 mylg-0">
-      <li  class="nav-item"><a class="nav-link" href="/ghost">LOGIN</a></li>
-    </ul>
-    
-      
-    
   </div>
 </nav>
+</div>

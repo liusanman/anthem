@@ -1,59 +1,23 @@
 {{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header">
+    <div class="outer site-nav-main">
+        <div class="inner">
+            {{> "site-nav"}}
+        </div>
+    </div>
+</header>
 
 
+{{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
+<main id="site-main" class="site-main outer">
 
-<main id="site-main" class="site-main container" role="main">
-  <div class="row">
-    <!--div class="col-md-2 col-xs-0"></div-->
-    <div class="col-md-12 col-xs-12">
-      <div class="panel panel-default font-coiny">
-        <div class="panel-heading">
-          <H2>Collection of: {{title}}</H2>
-          <div style="text-align:center">
-            <div style="display:inline-block" style="font-size:30px">
-            {{content}}
-            </div>
-          </div>
-        </div>
-        <div class="panel-body">
-          
-            <div class="blog-masonry masonry-true" > 
-              <div class="row" >
-            {{#foreach tags}}
-              <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
-                <div class="post-thumb">
-                  <a href="{{url}}">
-                    <img src="{{img_url feature_image}}" alt="">
-                    <div class="title-over">
-                      <span class="badge right">
-                        {{#get "tags" include="count.posts" filter="name:['{{name}}']"  }}
-                          {{#foreach tags}} 
-                            {{count.posts}}
-                          {{/foreach}}
-                        {{/get}}
-                      </span>
-                      <h2>{{name}}</h2>
-                    </div>
-                    <div class="post-hover text-center">
-                      <div class="inside">
-                        <h3>{{name}}</h3>
-                        {{description}}
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            {{/foreach}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--div class="col-md-2 col-xs-0"></div--> 
-  </div> 
-
+<div class="inner posts">
   <div class="post-feed">
   {{#foreach tags as |tag|}}
     {{#get "posts" filter="tags:['{{slug}}']" as |post|}}
@@ -65,7 +29,7 @@
     {{/get}}
   {{/foreach}}
   </div>
-
+</div>
 
 </div>  
 
@@ -74,4 +38,15 @@
   
 
   
+
 {{/post}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    $(function() {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
+</script>
+{{/contentFor}}

@@ -1,52 +1,157 @@
 {{!< default}}
-{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
 
-{{!-- The big featured header --}}
-
-{{!-- The main content area on the homepage --}}
-
-
+<header class="site-home-header">
+    {{> header-background background=@site.cover_image}} {{!--Special header-image.hbs partial to generate the background image--}}
+        <div class="inner">
+            {{!--> "site-nav"--}}
+            <div class="site-header-content">
+                <h1 class="site-title">
+                    {{#if @site.logo}}
+                        <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+                    {{else}}
+                        {{@site.title}}
+                    {{/if}}
+                </h1>
+                <h2 class="site-description">{{@site.description}}</h2>
+            </div>
+        </div>
+    </div>
+</header>
 
 {{!-- The main content area --}}
-<main id="site-main" class="container site-main" role="main">
+<main id="site-main" class="site-main outer">
 
-  {{!-- Panels displayed here. Each panel is linked the a static page named 'index1-5' --}}
-    <div class="blog-masonry masonry-true" >
-        <div class="row">
+    <div class="row inner " >
+        <div class="col-md-12 col-xs-12">
+            <div class="card">
+                <!--div class="card-header">
+                    <div style="text-align:left">
+                    <p></p>
+                    <p></p>
+                    <p> COLLECTIONS</p>
+                    </div>
+                </div-->
+                <div class="card-body">
+                    <div class="blog-masonry masonry-true justify-content-center d-flex" >
+                        <div class="row">
+                        {{#get "pages" order="title asc"}}
+                        {{#foreach pages}}
+                            <div class="post-masonry anthem-index-card col-md-4 col-sm-6">
+                            <div class="post-thumb">
+                                <a href="{{url}}">
+                                <img src="{{img_url feature_image}}" alt="">
+                                <div class="title-over">
+                                    <!--span class="badge right">
+                                    {{#get "tags" include="count.posts" filter="name:[{{page.tags}}]"  }}
+                                        {{#foreach tags}} 
+                                        {{count.posts}}
+                                        {{/foreach}}
+                                    {{else}}
+                                    <p class="error">{{error}}</p>
+                                    {{/get}}
 
-    {{#get "pages" order="title asc"}}
-
-    {{#foreach pages}}
-        <div class="post-masonry anthem-index-card col-md-4 col-sm-6">
-          <div class="post-thumb">
-            <a href="{{url}}">
-              <img src="{{img_url feature_image}}" alt="">
-              <div class="title-over">
-                <h2>{{title}}</h2>
-              </div>
-              <div class="post-hover text-center">
-                <div class="inside">
-                  <h3>{{title}}</h3>
-                  {{content}}
+                                    </span-->
+                                    <h2>{{title}}</h2>
+                                </div>
+                                <div class="post-hover text-center">
+                                    <div class="inside">
+                                    <h3>{{title}}</h3>
+                                    {{content}}
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            </div>
+                        {{/foreach}}
+                        {{else}}
+                            <p class="error">{{error}}</p>
+                        {{/get}}
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </a>
-          </div>
+            </div>
+            <div class="card">
+                <!--div class="card-header">
+                    <div style="text-align:left">
+                    </div>
+                </div-->
+                <div class="card-body post-father-card">
+                <div class="inner posts">
+                    <div class="post-feed">
+                        {{#foreach posts}}
+                            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-    {{/foreach}}
-    {{else}}
-      <p class="error">{{error}}</p>
-    {{/get}}
     </div>
-  </div>
-  <div class="post-feed">
-  {{#get "posts"  include="authors,tags" filter="featured:true" }}
-  {{#foreach posts}}
-    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-    {{> "post-card"}}
-  {{/foreach}}
-  {{else}}
-      <p class="error">{{error}}</p>
-  {{/get}}
-  </div>
+
+
+   
 </main>
+
+{{> site-header}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+
+    // NOTE: Scroll performance is poor in Safari
+    // - this appears to be due to the events firing much more slowly in Safari.
+    //   Dropping the scroll event and using only a raf loop results in smoother
+    //   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+        
+        var nav = document.querySelector('.site-nav-main .site-nav');
+        var feed = document.querySelector('.site-main');
+
+        var lastScrollY = window.scrollY;
+        var lastWindowHeight = window.innerHeight;
+        var lastDocumentHeight = $(document).height();
+        var ticking = false;
+
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            requestTick();
+        }
+
+        function onResize() {
+            lastWindowHeight = window.innerHeight;
+            lastDocumentHeight = $(document).height();
+            requestTick();
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+            }
+            ticking = true;
+        }
+
+        function update() {
+            var trigger = feed.getBoundingClientRect().top + window.scrollY;
+            var progressMax = lastDocumentHeight - lastWindowHeight;
+
+            // show/hide nav
+            if (lastScrollY >= trigger - 20) {
+                nav.classList.add('fixed-nav-active');
+            } else {
+                nav.classList.remove('fixed-nav-active');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize, false);
+
+        update();
+
+    });
+</script>
+{{/contentFor}}
