@@ -169,8 +169,11 @@ padding-left: 10px;
     /*background:url("../bkground/bk1.jpg");*/
     float:top;
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width:700px) {
     #anthem-toc {
+        display:none;
+    }
+    .toc-container{
         display:none;
     }
 }
