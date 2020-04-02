@@ -7,14 +7,16 @@ into the {body} of the default.hbs template --}}
     {{!--Special header-image.hbs partial to generate the background image--}}
     <div class="inner">
         <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @blog.logo}}
-                <img class="site-logo" src="{{img_url @blog.logo size="l"}}" alt="{{@blog.title}}" />
-                {{else}}
-                {{@blog.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@blog.description}}</h2>
+            <div class="anthem-site-head-content">
+        <h1 class="site-title">
+          {{#if @blog.logo}}
+          <img class="site-logo" src="{{img_url @blog.logo size="l"}}" alt="{{@blog.title}}" />
+          {{else}}
+          {{@blog.title}}
+          {{/if}}
+        </h1>
+        <h2 class="site-description">{{@blog.description}}</h2>
+        </div>
         </div>
     </div>
     </div>
@@ -23,15 +25,17 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 
 
-<main id="site-main" class="site-main outer">
+<main id="site-main" class="container  site-main" role="main">
 
-    <div class="row">
-        <div class="col-md-12 col-xs-12">
+<div class="col-md-12 col-xs-12">
             <div class="card">
-                <div class="card-body">
-                    <div class="blog-masonry masonry-true justify-content-center d-flex">
-                        <div class="row col-md-12">
-                            {{#get "tags" include="count.posts" limit="all"}}
+                <div class="card-header">
+                    COLLECTIONS
+                </div>
+                <div class="card-body post-father-card">
+                    <div class="inner ">
+<div class="row">
+                           {{#get "tags" include="count.posts" limit="all"}}
                             {{#foreach tags}}
                             <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
                                 <div class="post-thumb">
@@ -54,14 +58,52 @@ into the {body} of the default.hbs template --}}
                             </div>
                             {{/foreach}}
                             {{/get}}
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div class="row inner">
+        <div class="col-md-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    POSTS
+                </div>
+                <div class="card-body post-father-card">
+                    <div class="inner posts">
+
+                        <div class="post-feed">
+                           {{#get "posts"  include="author,tags" filter="featured:true" as |featured pages| }}
+
+                            {{#foreach featured}}
+                            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                            {{> "post-card"}}
+                            {{/foreach}}
+                           {{/get}}
+
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </main>
 
 {{> site-header}}
