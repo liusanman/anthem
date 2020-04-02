@@ -121,6 +121,11 @@ figure.kg-width-full img {
     min-height: fit-content;
     padding-top: 20px;
     padding-bottom: 0px;
+    background: rgba(0,0,0,0);
+}
+.card-body {
+    border-color: rgba(0,0,0,0);
+
 }
 .card {
     border-color: rgba(0,0,0,0);
@@ -230,7 +235,7 @@ padding-left: 10px;
 
 
 .inner .card-body {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0);
 }
 
 .panel-heading{
