@@ -175,7 +175,13 @@ padding-left: 10px;
     }
     .toc-container{
         display:none;
+
     }
+    .post-full-content {
+        display: block;
+        margin: 0;
+    }
+
 }
 #anthem-article {
     float:right;
