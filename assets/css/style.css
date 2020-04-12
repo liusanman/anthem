@@ -1,4 +1,9 @@
 
+/* Part ONE
+ * Copied from Casper of Ghost 3 to support TOC
+ *
+ *
+*/
 .post-content h2,
 .post-content h3 {
 	outline: none;
@@ -31,10 +36,6 @@ body {
 ol.toc-list {
 	margin: 0;
 }
-
-
-
-
 
 /**/
 /* Offset headings from fixed header */
@@ -73,11 +74,23 @@ figure.kg-width-full img {
     max-width: 0;
 }
 
-/**/
+/*
+ *
+ *
+ *
+*/
 
+/*@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+*/
 
+@font-face {
+    font-family: "Coiny"  ;
+    src: url("../fonts/Coiny-Regular.ttf");
+}
 
-
+.font-coiny {
+    font-family:  "Coiny"  ;
+}
 
 .site-header-background:before {
     background: rgba(0,0,0,0)!important;
@@ -89,13 +102,13 @@ figure.kg-width-full img {
 }
 .site-header-content .site-title {
     color: rgb(3, 3, 3);
-    font-family: anthem-title-font;
+    font-family:  "Coiny"  ;
     font-size: 8rem;
 
 }
 
 .site-nav-logo {
-    font-family: anthem-title-font;
+    font-family:  "Coiny"  ;
     font-size: 3rem;
 
 }
@@ -110,11 +123,11 @@ figure.kg-width-full img {
 
 .site-nav-content {
     top:-5px;
-    font-family: anthem-title-font;
+    font-family:  "Coiny"  ;
 }
 
 .card-header {
-    font-family: anthem-title-font;
+    font-family:  "Coiny"  ;
     font-size: 3rem;
     bottom: -15px;
     text-align: center;
@@ -155,10 +168,7 @@ padding-left: 10px;
 }
 
 
-@font-face {
-    font-family: anthem-title-font;
-    src: url('../fonts/Coiny-Regular.ttf');
-}
+
 
 
 .row{
@@ -188,9 +198,7 @@ padding-left: 10px;
     font-family: Lato,Helvetica Neue,Helvetica,sans-serif;
     font-size:18px;
 }
-.font-coiny {
-    font-family: anthem-index-card-font;
-}
+
 .anthem-site-head {
 
     background: #222 no-repeat center center;
@@ -200,12 +208,12 @@ padding-left: 10px;
 .anthem-site-head-content {
     background: rgba(255,255,255,0.5);
     padding: 10px;
-    font-family: anthem-title-font;
+    font-family:  "Coiny"  ;
     color:black;
 }
 .anthem-index-card {
     /*height:100px;*/
-    font-family:anthem-index-card-font;
+    font-family: "Coiny"  ;
     
     /*background-size:cover;*/
 }
@@ -248,7 +256,7 @@ padding-left: 10px;
 }
 
 .panel-heading{
-    font-family:anthem-index-card-font!important;
+    font-family: "Coiny"  !important;
     text-align:center;
     font-size: xx-large!important;
     padding-top: 10px;
@@ -265,21 +273,21 @@ padding-left: 10px;
 
 
 
-@font-face {
-    font-family: anthem-index-card-font;
-    src: url('../fonts/Coiny-Regular.ttf');
-}
 
 
 
 
 
 
-
+/* Part THREE
+ * Used for Index Card
+ *
+ *
+*/
 
 .post-masonry {
     margin-bottom: 30px;
-    font-family: 'anthem-title-font';
+    font-family:  "Coiny"  ;
     margin-top: 20px;
     
 }
@@ -309,7 +317,13 @@ padding-left: 10px;
 
 .post-masonry .post-thumb .title-over h2 {
     text-align:center;
-    font-family: 'anthem-title-font';
+    font-family:  "Coiny"  ;
+    color:orange;
+}
+
+.post-masonry .post-thumb .post-hover h3 {
+    text-align:center;
+    font-family:  "Coiny"  ;
     color:orange;
 }
 
@@ -345,7 +359,7 @@ padding-left: 10px;
 }
 
 .post-masonry .post-thumb .post-hover h4 {
-    font-family: 'anthem-title-font';
+    font-family:  "Coiny"  ;
     margin-bottom: 10px;
     color:orange;
 }

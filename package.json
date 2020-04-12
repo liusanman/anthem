@@ -2,10 +2,10 @@
     "name": "anthem",
     "description": "an simple theme",
     "demo": "https://www.anmane.com",
-    "version": "0.0.7",
+    "version": "1.0.0",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
+        "ghost": "=1.0.0",
+        "ghost-api": "v1"
     },
     "license": "MIT",
     "screenshots": {
@@ -14,7 +14,7 @@
     },
     "author": {
         "name": "liusanman",
-        "email": "liusricha@gmail.com",
+        "email": "liushuo.int@gmail.com",
         "url": "https://www.anmane.com"
     },
     "gpm": {
