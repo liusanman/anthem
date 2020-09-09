@@ -7,16 +7,14 @@ into the {body} of the default.hbs template --}}
     {{!--Special header-image.hbs partial to generate the background image--}}
     <div class="inner">
         <div class="site-header-content">
-            <div class="anthem-site-head-content">
-        <h1 class="site-title">
-          {{#if @blog.logo}}
-          <img class="site-logo" src="{{img_url @blog.logo size="l"}}" alt="{{@blog.title}}" />
-          {{else}}
-          {{@blog.title}}
-          {{/if}}
-        </h1>
-        <h2 class="site-description">{{@blog.description}}</h2>
-        </div>
+            <h1 class="site-title">
+            {{#if @blog.logo}}
+                <img class="site-logo" src="{{img_url @blog.logo size="l"}}" alt="{{@blog.title}}" />
+            {{else}}
+                {{@blog.title}}
+            {{/if}}
+            </h1>
+            <h2 class="site-description">{{@blog.description}}</h2>
         </div>
     </div>
     </div>
@@ -28,82 +26,68 @@ into the {body} of the default.hbs template --}}
 <main id="site-main" class="container  site-main" role="main">
 
 <div class="col-md-12 col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    COLLECTIONS
-                </div>
-                <div class="card-body post-father-card">
-                    <div class="inner ">
-<div class="row">
-                           {{#get "tags" include="count.posts" limit="all"}}
-                            {{#foreach tags}}
-                            <div class="post-masonry col-md-4 col-sm-6" id="anthem-index-card">
-                                <div class="post-thumb">
-                                    <a href="{{url}}">
-                                        <img src="{{img_url feature_image}}" alt="">
-                                        <div class="title-over">
-                                            <span class="badge right">
-                                                {{count.posts}}
-                                            </span>
-                                            <h2>{{name}}</h2>
-                                        </div>
-                                        <div class="post-hover text-center">
-                                            <div class="inside">
-                                                <h3>{{name}}</h3>
-                                                {{description}}
-                                            </div>
-                                        </div>
-                                    </a>
+    <div class="card">
+        <div class="card-header">
+            COLLECTIONS
+        </div>
+        <div class="card-body post-father-card">
+            <div class="inner ">
+                <div class="row">
+                    {{#get "tags" include="count.posts" limit="all"}}
+                    {{#foreach tags}}
+                    <div class="post-masonry col-md-4 col-sm-6">
+                        <div class="post-thumb">
+                            <a href="{{url}}">
+                                <img src="{{img_url feature_image}}" alt="">
+                                <div class="title-over">
+                                    <span class="badge right">
+                                        {{count.posts}}
+                                    </span>
+                                    <h2>{{name}}</h2>
                                 </div>
-                            </div>
-                            {{/foreach}}
-                            {{/get}}
-</div>
-
+                                <div class="post-hover text-center">
+                                    <div class="inside">
+                                        <h3>{{name}}</h3>
+                                        {{description}}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
+                    {{/foreach}}
+                    {{/get}}
                 </div>
+
             </div>
         </div>
+    </div>
+</div>
 
+<div class="row inner">
+    <div class="col-md-12 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                POSTS
+            </div>
+            <div class="card-body post-father-card">
+                <div class="inner posts">
 
+                    <div class="post-feed">
+                        {{#get "posts"  include="author,tags" filter="featured:true" as |featured pages| }}
 
-
-    
-
-
-
-
-
-
-
-
-
-
-    <div class="row inner">
-        <div class="col-md-12 col-xs-12">
-            <div class="card">
-                <div class="card-header">
-                    POSTS
-                </div>
-                <div class="card-body post-father-card">
-                    <div class="inner posts">
-
-                        <div class="post-feed">
-                           {{#get "posts"  include="author,tags" filter="featured:true" as |featured pages| }}
-
-                            {{#foreach featured}}
-                            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                            {{> "post-card"}}
-                            {{/foreach}}
-                           {{/get}}
-
-                        </div>
+                        {{#foreach featured}}
+                        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                        {{> "post-card"}}
+                        {{/foreach}}
+                        {{/get}}
 
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 </main>
 
 {{> site-header}}

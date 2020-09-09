@@ -74,115 +74,7 @@ figure.kg-width-full img {
     max-width: 0;
 }
 
-/*
- *
- *
- *
-*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
-*/
-
-@font-face {
-    font-family: "Coiny"  ;
-    src: url("../fonts/Coiny-Regular.ttf");
-}
-
-.font-coiny {
-    font-family:  "Coiny"  ;
-}
-
-.site-header-background:before {
-    background: rgba(0,0,0,0)!important;
-}
-.site-nav li a {
-    color: rgb(55, 110, 220)!important;
-    font-size: large;
-    font-weight: 700;
-}
-.site-header-content .site-title {
-    color: rgb(3, 3, 3);
-    font-family:  "Coiny"  ;
-    font-size: 8rem;
-
-}
-
-.site-nav-logo {
-    font-family:  "Coiny"  ;
-    font-size: 3rem;
-
-}
-.navbar {
-    background-color: rgba(0,0,0,0);
-}
-
-.navbar-nav li{
-    margin-left:30px;
-    margin-right:0px;
-  }
-
-.site-nav-content {
-    top:-5px;
-    font-family:  "Coiny"  ;
-}
-
-.card-header {
-    font-family:  "Coiny"  ;
-    font-size: 3rem;
-    bottom: -15px;
-    text-align: center;
-    min-height: fit-content;
-    padding-top: 20px;
-    padding-bottom: 0px;
-    background: rgba(0,0,0,0);
-}
-.card-body {
-    border-color: rgba(0,0,0,0);
-
-}
-.card {
-    border-color: rgba(0,0,0,0);
-    background: rgba(0,0,0,0);
-}
-
-.post-full-header {
-padding-left: 10px;
-}
-
-.post-father-card {
-    background-color: rgba(0,0,0,0);
-    border-top: #3eb0ef;
-}
-/*
-.site-main {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.post-card {
-    background-color: beige;
-}
-*/
-
-.anthem-tag-page {
-    padding-top:100px;
-}
-
-
-
-
-
-.row{
-    overflow:hidden;
-}
-
-#anthem-toc {
-    /*background:url("../bkground/bk1.jpg");*/
-    float:top;
-}
 @media screen and (max-width:700px) {
-    #anthem-toc {
-        display:none;
-    }
     .toc-container{
         display:none;
 
@@ -193,54 +85,101 @@ padding-left: 10px;
     }
 
 }
-#anthem-article {
-    float:right;
-    font-family: Lato,Helvetica Neue,Helvetica,sans-serif;
-    font-size:18px;
+/* Part TWO
+ * For HomePage
+ *
+ *
+*/
+
+/*
+===== Font ======
+*/
+
+.font-coiny {
+    font-family: 'Coiny','Long Cang';
 }
 
-.anthem-site-head {
 
-    background: #222 no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
+/*
+====== Site Header ======
+*/
+.site-header-background:before {
+    background: rgba(0,0,0,0)!important;
 }
-.anthem-site-head-content {
+
+.site-header-content {
+    font-family: 'Coiny','Long Cang';
+}
+.site-header-content .site-title {
+    color: rgb(3, 3, 3);
+    font-size: 8rem;
     background: rgba(255,255,255,0.5);
     padding: 10px;
-    font-family:  "Coiny"  ;
-    color:black;
-}
-.anthem-index-card {
-    /*height:100px;*/
-    font-family: "Coiny"  ;
-    
-    /*background-size:cover;*/
-}
-
-.anthem-page-card {
-    height:50px;
-}
-.anthem-img {
-    max-width:100%;
-    max-height:100%;
-    width:auto;
-    height:auto;
-    margin:0 auto;
-}
-
-#anthem-toc {
-    display:none;
-    padding-bottom:100%;
-    
-}
-
-.navbar-brand {
     color:black;
 }
 
-.affix {
-    top:90;
+/*
+====== Navigater Bar ======
+*/
+
+.site-nav {
+    font-family: 'Coiny','Long Cang';
+}
+.site-nav li a {
+    color: rgb(55, 110, 220)!important;
+    font-size: large;
+    font-weight: 700;
+}
+.site-nav-logo {
+    font-size: 3rem;
+}
+
+.navbar {
+    background-color: rgba(0,0,0,0);
+}
+.navbar-nav li{
+    margin-left:30px;
+    margin-right:0px;
+}
+.site-nav-content {
+    top:-5px;
+}
+
+
+/*
+====== Post Card =========
+*/
+
+.card {
+    border-color: rgba(0,0,0,0);
+    background: rgba(0,0,0,0);
+    font-family:  'Coiny','Long Cang';
+}
+.card-header {
+    font-size: 3rem;
+    bottom: -15px;
+    text-align: center;
+    min-height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    background: rgba(0,0,0,0);
+}
+.card-body {
+    border-color: rgba(0,0,0,0);
+}
+
+
+.post-full-header {
+padding-left: 10px;
+}
+
+.post-father-card {
+    background-color: rgba(0,0,0,0);
+    border-top: #3eb0ef;
+}
+
+.row{
+    overflow:hidden;
 }
 
 .right {
@@ -248,15 +187,12 @@ padding-left: 10px;
     right:5px;
 }
 
-
-
-
 .inner .card-body {
     background: rgba(0,0,0,0);
 }
 
 .panel-heading{
-    font-family: "Coiny"  !important;
+    font-family: 'Coiny','Long Cang'   !important;
     text-align:center;
     font-size: xx-large!important;
     padding-top: 10px;
@@ -264,19 +200,6 @@ padding-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-.panel-heading p {
-
-}
-
-
-
-
-
-
-
-
-
 
 
 /* Part THREE
@@ -287,7 +210,7 @@ padding-left: 10px;
 
 .post-masonry {
     margin-bottom: 30px;
-    font-family:  "Coiny"  ;
+    font-family:  'Coiny','Long Cang'   ;
     margin-top: 20px;
     
 }
@@ -317,20 +240,12 @@ padding-left: 10px;
 
 .post-masonry .post-thumb .title-over h2 {
     text-align:center;
-    font-family:  "Coiny"  ;
     color:orange;
 }
 
 .post-masonry .post-thumb .post-hover h3 {
     text-align:center;
-    font-family:  "Coiny"  ;
     color:orange;
-}
-
-
-
-.post-masonry .post-thumb .title-over a {
-    /*color: #fff;*/
 }
 
 .post-masonry .post-thumb .post-hover {
@@ -359,7 +274,6 @@ padding-left: 10px;
 }
 
 .post-masonry .post-thumb .post-hover h4 {
-    font-family:  "Coiny"  ;
     margin-bottom: 10px;
     color:orange;
 }
@@ -400,6 +314,3 @@ padding-left: 10px;
     visibility: visible;
     opacity: 1;
 }
-
-
-
