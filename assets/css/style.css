@@ -4,6 +4,9 @@
  *
  *
 */
+.post-hover-desc {
+    font-size: 1.5em;
+}
 .post-content h2,
 .post-content h3 {
 	outline: none;
@@ -96,7 +99,7 @@ figure.kg-width-full img {
 */
 
 .font-coiny {
-    font-family: 'Coiny','Long Cang';
+    font-family: 'Coiny','Ma Shan Zheng';
 }
 
 
@@ -108,7 +111,7 @@ figure.kg-width-full img {
 }
 
 .site-header-content {
-    font-family: 'Coiny','Long Cang';
+    font-family: 'Coiny','Ma Shan Zheng';
 }
 .site-header-content .site-title {
     color: rgb(3, 3, 3);
@@ -123,7 +126,7 @@ figure.kg-width-full img {
 */
 
 .site-nav {
-    font-family: 'Coiny','Long Cang';
+    font-family: 'Coiny','Ma Shan Zheng';
 }
 .site-nav li a {
     color: rgb(55, 110, 220)!important;
@@ -162,7 +165,7 @@ figure.kg-width-full img {
     padding-top: 20px;
     padding-bottom: 0px;
     background: rgba(0,0,0,0);
-    font-family:  'Coiny','Long Cang';
+    font-family:  'Coiny','Ma Shan Zheng';
 }
 .card-body {
     border-color: rgba(0,0,0,0);
@@ -192,7 +195,7 @@ padding-left: 10px;
 }
 
 .panel-heading{
-    font-family: 'Coiny','Long Cang'   !important;
+    font-family: 'Coiny','Ma Shan Zheng'   !important;
     text-align:center;
     font-size: xx-large!important;
     padding-top: 10px;
@@ -210,7 +213,7 @@ padding-left: 10px;
 
 .post-masonry {
     margin-bottom: 30px;
-    font-family:  'Coiny','Long Cang'   ;
+    font-family:  'Coiny','Ma Shan Zheng'   ;
     margin-top: 20px;
     
 }
